@@ -5,11 +5,10 @@ import Metrics from "./components/Metrics";
 import Properties from "./components/Properties";
 import PropertyMatcher from "./components/PropertyMatcher";
 import Leadership from "./components/Leadership";
-import AgentChat from "./components/AgentChat";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 
-const SECTIONS = ["hero", "metrics", "properties", "matcher", "leadership", "advisor", "contact"];
+const SECTIONS = ["hero", "metrics", "properties", "matcher", "leadership", "contact"];
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("hero");
@@ -44,7 +43,6 @@ export default function App() {
         <Properties />
         <PropertyMatcher />
         <Leadership />
-        <AgentChat />
         <ContactForm />
       </main>
       <Footer />
