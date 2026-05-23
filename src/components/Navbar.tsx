@@ -53,7 +53,8 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
             <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
               <span style={{
                 fontFamily: "var(--font-serif)", fontSize: "1.2rem", fontWeight: 900,
-                color: "var(--text)", letterSpacing: "0.12em"
+                color: scrolled ? "var(--text)" : "#FFFFFF", letterSpacing: "0.12em",
+                transition: "color 0.3s ease"
               }}>GYDEN</span>
               <span style={{
                 fontFamily: "var(--font-mono)", fontSize: "0.48rem", letterSpacing: "0.22em",
@@ -73,12 +74,12 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
                   background: "none", border: "none", cursor: "pointer",
                   fontFamily: "var(--font-sans)", fontSize: "0.78rem", fontWeight: 500,
                   letterSpacing: "0.08em", textTransform: "uppercase",
-                  color: activeSection === link.id ? "var(--gold)" : "var(--text-muted)",
+                  color: activeSection === link.id ? "var(--gold)" : (scrolled ? "var(--text-muted)" : "rgba(255, 255, 255, 0.8)"),
                   transition: "color 0.2s",
                   position: "relative", padding: "4px 0",
                 }}
-                onMouseEnter={e => { if (activeSection !== link.id) (e.target as HTMLElement).style.color = "var(--text)"; }}
-                onMouseLeave={e => { if (activeSection !== link.id) (e.target as HTMLElement).style.color = "var(--text-muted)"; }}
+                onMouseEnter={e => { if (activeSection !== link.id) (e.target as HTMLElement).style.color = scrolled ? "var(--text)" : "#FFFFFF"; }}
+                onMouseLeave={e => { if (activeSection !== link.id) (e.target as HTMLElement).style.color = scrolled ? "var(--text-muted)" : "rgba(255, 255, 255, 0.8)"; }}
               >
                 {link.label}
                 {activeSection === link.id && (
@@ -94,13 +95,13 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
               onClick={() => handleNav("contact")}
               style={{
                 padding: "0.55rem 1.4rem",
-                background: "transparent", border: "1px solid var(--gold-border)",
-                color: "var(--gold)", fontFamily: "var(--font-sans)", fontSize: "0.75rem",
+                background: "transparent", border: scrolled ? "1px solid var(--gold-border)" : "1px solid var(--gold)",
+                color: scrolled ? "var(--gold)" : "#FFFFFF", fontFamily: "var(--font-sans)", fontSize: "0.75rem",
                 fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase",
                 cursor: "pointer", transition: "all 0.25s",
               }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--gold)"; (e.currentTarget as HTMLElement).style.color = "var(--bg)"; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.color = "var(--gold)"; }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--gold)"; (e.currentTarget as HTMLElement).style.color = "#FFFFFF"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.color = scrolled ? "var(--gold)" : "#FFFFFF"; }}
             >
               Book Consultation
             </button>
@@ -110,7 +111,7 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
           <button
             id="nav-mobile-menu-btn"
             onClick={() => setMenuOpen(true)}
-            style={{ background: "none", border: "none", color: "var(--text)", cursor: "pointer", display: "none" }}
+            style={{ background: "none", border: "none", color: scrolled ? "var(--text)" : "#FFFFFF", cursor: "pointer", display: "none", transition: "color 0.3s ease" }}
             className="mobile-menu-btn"
           >
             <Menu size={22} />

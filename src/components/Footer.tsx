@@ -8,7 +8,7 @@ export default function Footer() {
 
   return (
     <footer id="global-footer" style={{ background: "var(--bg-card)", borderTop: "1px solid var(--border)", paddingTop: "4rem", paddingBottom: "2.5rem" }}>
-      <div className="container">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: "3rem", marginBottom: "3rem" }} className="footer-grid">
           {/* Brand */}
           <div className="footer-brand">
@@ -56,11 +56,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div style={{ borderTop: "1px solid var(--border)", paddingTop: "1.5rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
+        <div className="footer-bottom" style={{ borderTop: "1px solid var(--border)", paddingTop: "1.5rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
           <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", letterSpacing: "0.08em", color: "var(--text-dim)" }}>
             © 2026 GYDEN Real Estate Group (GREC). All rights reserved.
           </span>
-          <div style={{ display: "flex", gap: "1.5rem" }}>
+          <div className="footer-bottom-links" style={{ display: "flex", gap: "1.5rem" }}>
             {["Privacy Policy", "Terms of Service", "PDPA Compliance"].map(item => (
               <span key={item} style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.08em", color: "var(--text-dim)", cursor: "pointer", transition: "color 0.2s" }}
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "var(--gold)"}
@@ -79,6 +79,8 @@ export default function Footer() {
         @media (max-width: 600px) {
           .footer-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
           .footer-brand { grid-column: span 1; }
+          .footer-bottom { flex-direction: column !important; align-items: center !important; text-align: center !important; }
+          .footer-bottom-links { justify-content: center !important; }
         }
       `}</style>
     </footer>
