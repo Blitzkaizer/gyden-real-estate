@@ -17,9 +17,14 @@ export default function AgentChat() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   
   const chatEndRef = useRef<HTMLDivElement | null>(null);
+  const isFirstMount = useRef(true);
 
   // Auto-scroll to bottom on new messages
   useEffect(() => {
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isTyping]);
 
