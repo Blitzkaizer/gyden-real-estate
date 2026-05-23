@@ -57,7 +57,7 @@ export default function ContactForm() {
   return (
     <section id="contact" className="py-24 bg-[var(--bg)] border-t border-[var(--border)] text-[var(--text)]">
       <motion.div 
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        className="container"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
@@ -71,8 +71,8 @@ export default function ContactForm() {
             <div className="space-y-6">
               
               {/* Vibe badge */}
-              <div className="inline-flex items-center space-x-2 bg-[var(--bg-surface)] border border-[var(--gold-border)] rounded-none px-3.5 py-1.5">
-                <span className="text-[9px] text-[var(--gold)] font-mono tracking-widest font-bold uppercase">GREC ADVISORY OFFICE</span>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "var(--bg-surface)", border: "1px solid var(--gold-border)", padding: "0.35rem 0.85rem" }}>
+                <span style={{ fontSize: "0.56rem", color: "var(--gold)", fontFamily: "var(--font-mono)", letterSpacing: "0.15em", fontWeight: "bold", textTransform: "uppercase" }}>GREC ADVISORY OFFICE</span>
               </div>
 
               <h2 className="text-3xl sm:text-4xl font-normal font-serif tracking-tight text-[var(--text)] leading-tight">
@@ -84,18 +84,30 @@ export default function ContactForm() {
               </p>
 
               {/* CEO Guarantee Highlight Card */}
-              <div className="bg-[var(--bg-surface)] p-6 rounded-none border border-[var(--border)]">
+              <div style={{ background: "var(--bg-surface)", padding: "1.5rem", border: "1px solid var(--border)" }}>
                 <blockquote className="text-xs text-[var(--text-muted)] italic leading-relaxed font-serif">
                   "Every capital allocation request is reviewed personally under our strict GREC portfolio standard. If you present an investment thesis, we will match it against active title deeds within Johor's premier corridors."
                 </blockquote>
-                <div className="flex items-start space-x-3.5 mt-5 pt-5 border-t border-[var(--border)]">
-                  <div className="bg-[var(--gold)] text-stone-950 text-xs font-mono font-bold h-9 w-9 rounded-none flex items-center justify-center shrink-0">
+                <div style={{ display: "flex", gap: "0.875rem", marginTop: "1.25rem", paddingTop: "1.25rem", borderTop: "1px solid var(--border)", alignItems: "flex-start" }}>
+                  <div style={{
+                    backgroundColor: "var(--gold)",
+                    color: "var(--bg)",
+                    fontSize: "0.75rem",
+                    fontFamily: "var(--font-mono)",
+                    fontWeight: "bold",
+                    height: "36px",
+                    width: "36px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0
+                  }}>
                     GH
                   </div>
-                  <div>
-                    <span className="text-xs font-bold text-[var(--text)] block">Gyden Heng</span>
-                    <span className="text-[9px] text-[var(--gold)] font-mono font-bold block uppercase tracking-wider mt-0.5">CEO & Founder, GYDEN Group</span>
-                    <span className="text-[10px] text-[var(--text-muted)] block mt-1.5 leading-relaxed">CEO of GREC with 7+ years of elite real estate experience specializing in commercial acquisitions and bespoke yield optimization.</span>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "2px", flex: 1 }}>
+                    <span style={{ fontSize: "0.75rem", fontWeight: "bold", color: "var(--text)", display: "block", lineHeight: 1.2 }}>Gyden Heng</span>
+                    <span style={{ fontSize: "0.56rem", color: "var(--gold)", fontFamily: "var(--font-mono)", fontWeight: "bold", display: "block", textTransform: "uppercase", letterSpacing: "0.08em" }}>CEO & Founder, GYDEN Group</span>
+                    <span style={{ fontSize: "0.625rem", color: "var(--text-muted)", display: "block", marginTop: "4px", lineHeight: "1.5" }}>CEO of GREC with 7+ years of elite real estate experience specializing in commercial acquisitions and bespoke yield optimization.</span>
                   </div>
                 </div>
               </div>
@@ -103,18 +115,18 @@ export default function ContactForm() {
             </div>
 
             {/* Direct Coordinates */}
-            <div className="mt-8 space-y-4 pt-6 border-t border-[var(--border)] text-[10px] text-[var(--text-muted)] font-mono uppercase tracking-wider">
-              <div className="flex items-center space-x-3.5">
-                <MapPin className="h-4 w-4 text-[var(--gold)] shrink-0" />
-                <span>Johor Bahru Central Business District (CBD), Malaysia</span>
+            <div style={{ marginTop: "2rem", display: "flex", flexDirection: "column", gap: "1rem", paddingTop: "1.5rem", borderTop: "1px solid var(--border)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}>
+                <MapPin style={{ height: "16px", width: "16px", color: "var(--gold)", flexShrink: 0 }} />
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-muted)" }}>Johor Bahru Central Business District (CBD), Malaysia</span>
               </div>
-              <div className="flex items-center space-x-3.5">
-                <Mail className="h-4 w-4 text-[var(--gold)] shrink-0" />
-                <span className="lowercase text-[var(--text-muted)]">info.gydenrealestate@grec.com</span>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}>
+                <Mail style={{ height: "16px", width: "16px", color: "var(--gold)", flexShrink: 0 }} />
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.08em", color: "var(--text-muted)" }}>info.gydenrealestate@grec.com</span>
               </div>
-              <div className="flex items-center space-x-3.5">
-                <Phone className="h-4 w-4 text-[var(--gold)] shrink-0" />
-                <span>+60 7-224 14088 (Johor Office Desk)</span>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}>
+                <Phone style={{ height: "16px", width: "16px", color: "var(--gold)", flexShrink: 0 }} />
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-muted)" }}>+60 7-224 14088 (Johor Office Desk)</span>
               </div>
             </div>
 

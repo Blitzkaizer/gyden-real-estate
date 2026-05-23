@@ -43,7 +43,7 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
           transition: "all 0.4s ease",
         }}
       >
-        <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
           {/* Logo */}
           <button
             onClick={() => document.getElementById("hero")?.scrollIntoView({ behavior: "smooth" })}

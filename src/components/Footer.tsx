@@ -8,22 +8,22 @@ export default function Footer() {
 
   return (
     <footer id="global-footer" style={{ background: "var(--bg-card)", borderTop: "1px solid var(--border)", paddingTop: "4rem", paddingBottom: "2.5rem" }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr 1fr", gap: "3rem", marginBottom: "3rem", width: "100%" }} className="footer-grid">
+      <div className="container">
+        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: "3rem", marginBottom: "3rem" }} className="footer-grid">
           {/* Brand */}
           <div className="footer-brand">
             <div style={{ marginBottom: "1.25rem" }}>
               <div style={{ fontFamily: "var(--font-serif)", fontSize: "1.4rem", fontWeight: 900, color: "var(--text)", letterSpacing: "0.1em" }}>GYDEN</div>
               <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.52rem", letterSpacing: "0.22em", color: "var(--gold)", textTransform: "uppercase", marginTop: "2px" }}>Real Estate Group</div>
             </div>
-            <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", lineHeight: 1.75, maxWidth: "360px" }}>
+            <p style={{ fontSize: "0.85rem", color: "var(--text-dim)", lineHeight: 1.75, maxWidth: "360px" }}>
               Optimized Asset Allocation & One-Stop Real Estate Solutions in Johor Bahru. Engineered under CEO Gyden Heng.
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="footer-nav">
-            <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--text)", marginBottom: "1.25rem", fontWeight: 700 }}>Navigation</h4>
+            <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "1.25rem", fontWeight: 700 }}>Navigation</h4>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", alignItems: "flex-start" }}>
               {links.map(link => (
                 <button
@@ -32,11 +32,11 @@ export default function Footer() {
                   onClick={() => document.getElementById(link.id)?.scrollIntoView({ behavior: "smooth" })}
                   style={{
                     background: "none", border: "none", padding: 0, textAlign: "left",
-                    color: "var(--text-muted)", fontSize: "0.85rem", cursor: "pointer",
+                    color: "var(--text-dim)", fontSize: "0.85rem", cursor: "pointer",
                     transition: "color 0.2s", fontFamily: "var(--font-sans)", display: "block"
                   }}
                   onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "var(--gold)"}
-                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "var(--text-muted)"}
+                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "var(--text-dim)"}
                 >
                   {link.label}
                 </button>
@@ -46,8 +46,8 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="footer-contact">
-            <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--text)", marginBottom: "1.25rem", fontWeight: 700 }}>Contact</h4>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", fontSize: "0.85rem", color: "var(--text-muted)", lineHeight: 1.6 }}>
+            <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "1.25rem", fontWeight: 700 }}>Contact</h4>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", fontSize: "0.85rem", color: "var(--text-dim)", lineHeight: 1.6 }}>
               <span>Johor Bahru CBD, Malaysia</span>
               <span style={{ wordBreak: "break-all" }}>info.gydenrealestate@grec.com</span>
               <span>+60 7-224 14088</span>
@@ -57,14 +57,14 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="footer-bottom" style={{ borderTop: "1px solid var(--border)", paddingTop: "1.5rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", letterSpacing: "0.08em", color: "var(--text-muted)" }}>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", letterSpacing: "0.08em", color: "var(--text-dim)" }}>
             © 2026 GYDEN Real Estate Group (GREC). All rights reserved.
           </span>
           <div className="footer-bottom-links" style={{ display: "flex", gap: "1.5rem" }}>
             {["Privacy Policy", "Terms of Service", "PDPA Compliance"].map(item => (
-              <span key={item} style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.08em", color: "var(--text-muted)", cursor: "pointer", transition: "color 0.2s" }}
+              <span key={item} style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.08em", color: "var(--text-dim)", cursor: "pointer", transition: "color 0.2s" }}
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "var(--gold)"}
-                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "var(--text-muted)"}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "var(--text-dim)"}
               >{item}</span>
             ))}
           </div>
