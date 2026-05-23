@@ -155,16 +155,16 @@ export default function ContactForm() {
               </div>
             ) : (
               /* Consultation Input Fields Form */
-              <form onSubmit={handleSubmit} className="space-y-5 text-xs font-sans">
-                <span className="text-[10px] text-[var(--gold)] font-mono tracking-widest font-bold uppercase block mb-4">
+              <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", letterSpacing: "0.2em", color: "var(--gold)", fontWeight: "bold", textTransform: "uppercase", display: "block", marginBottom: "0.5rem" }}>
                   Client Intake Questionnaire
                 </span>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[var(--text-muted)] mb-1.5 text-[9px] font-mono tracking-widest uppercase font-bold">Authorized Full Name</label>
-                    <div className="relative">
-                      <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-500" />
+                    <label style={{ display: "block", marginBottom: "0.4rem", fontFamily: "var(--font-mono)", fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", fontWeight: "bold" }}>Authorized Full Name</label>
+                    <div style={{ position: "relative", width: "100%" }}>
+                      <User style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", width: "16px", height: "16px", color: "var(--text-dim)", pointerEvents: "none" }} />
                       <input
                         id="contact-input-name"
                         type="text"
@@ -172,15 +172,15 @@ export default function ContactForm() {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-none pl-10 pr-3 py-3 text-xs text-[var(--text)] outline-none focus:border-[var(--gold)] transition-all font-sans placeholder-stone-750"
+                        style={{ display: "block", width: "100%", height: "46px", background: "var(--bg)", border: "1px solid var(--border)", paddingLeft: "2.5rem", paddingRight: "1rem", color: "var(--text)", fontFamily: "var(--font-sans)", fontSize: "0.78rem", outline: "none", borderRadius: "0px" }}
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-[var(--text-muted)] mb-1.5 text-[9px] font-mono tracking-widest uppercase font-bold">Corporate Email Address</label>
-                    <div className="relative">
-                      <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-500" />
+                    <label style={{ display: "block", marginBottom: "0.4rem", fontFamily: "var(--font-mono)", fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", fontWeight: "bold" }}>Corporate Email Address</label>
+                    <div style={{ position: "relative", width: "100%" }}>
+                      <Mail style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", width: "16px", height: "16px", color: "var(--text-dim)", pointerEvents: "none" }} />
                       <input
                         id="contact-input-email"
                         type="email"
@@ -188,7 +188,7 @@ export default function ContactForm() {
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-none pl-10 pr-3 py-3 text-xs text-[var(--text)] outline-none focus:border-[var(--gold)] transition-all font-sans placeholder-stone-750"
+                        style={{ display: "block", width: "100%", height: "46px", background: "var(--bg)", border: "1px solid var(--border)", paddingLeft: "2.5rem", paddingRight: "1rem", color: "var(--text)", fontFamily: "var(--font-sans)", fontSize: "0.78rem", outline: "none", borderRadius: "0px" }}
                       />
                     </div>
                   </div>
@@ -196,29 +196,29 @@ export default function ContactForm() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[var(--text-muted)] mb-1.5 text-[9px] font-mono tracking-widest uppercase font-bold">Telephone Number</label>
-                    <div className="relative">
-                      <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-500" />
+                    <label style={{ display: "block", marginBottom: "0.4rem", fontFamily: "var(--font-mono)", fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", fontWeight: "bold" }}>Telephone Number</label>
+                    <div style={{ position: "relative", width: "100%" }}>
+                      <Phone style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", width: "16px", height: "16px", color: "var(--text-dim)", pointerEvents: "none" }} />
                       <input
                         id="contact-input-phone"
                         type="tel"
                         placeholder="+60 12-345 6789"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-none pl-10 pr-3 py-3 text-xs text-[var(--text)] outline-none focus:border-[var(--gold)] transition-all font-sans placeholder-stone-750"
+                        style={{ display: "block", width: "100%", height: "46px", background: "var(--bg)", border: "1px solid var(--border)", paddingLeft: "2.5rem", paddingRight: "1rem", color: "var(--text)", fontFamily: "var(--font-sans)", fontSize: "0.78rem", outline: "none", borderRadius: "0px" }}
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-[var(--text-muted)] mb-1.5 text-[9px] font-mono tracking-widest uppercase font-bold">Budget Range Bracket (RM)</label>
-                    <div className="relative">
-                      <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--gold)]" />
+                    <label style={{ display: "block", marginBottom: "0.4rem", fontFamily: "var(--font-mono)", fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", fontWeight: "bold" }}>Budget Range Bracket (RM)</label>
+                    <div style={{ position: "relative", width: "100%" }}>
+                      <DollarSign style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", width: "16px", height: "16px", color: "var(--gold)", pointerEvents: "none" }} />
                       <select
                         id="contact-input-budget"
                         value={formData.budget}
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                        className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-none pl-10 pr-8 py-3 text-xs text-[var(--text)] outline-none focus:border-[var(--gold)] transition-all font-sans"
+                        style={{ display: "block", width: "100%", height: "46px", background: "var(--bg)", border: "1px solid var(--border)", paddingLeft: "2.5rem", paddingRight: "2rem", color: "var(--text)", fontFamily: "var(--font-sans)", fontSize: "0.78rem", outline: "none", borderRadius: "0px", cursor: "pointer" }}
                       >
                         <option>Under RM 1,000,000</option>
                         <option>RM 1,000,000 - RM 2,000,000</option>
@@ -231,12 +231,12 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <label className="block text-[var(--text-muted)] mb-1.5 text-[9px] font-mono tracking-widest uppercase font-bold">Allocation Strategy Target focus</label>
+                  <label style={{ display: "block", marginBottom: "0.4rem", fontFamily: "var(--font-mono)", fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", fontWeight: "bold" }}>Allocation Strategy Target focus</label>
                   <select
                     id="contact-input-strategy"
                     value={formData.strategy}
                     onChange={(e) => setFormData({ ...formData, strategy: e.target.value })}
-                    className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-none px-3.5 py-3 text-xs text-[var(--text)] outline-none focus:border-[var(--gold)] transition-all font-sans"
+                    style={{ display: "block", width: "100%", height: "46px", background: "var(--bg)", border: "1px solid var(--border)", paddingLeft: "1rem", paddingRight: "2rem", color: "var(--text)", fontFamily: "var(--font-sans)", fontSize: "0.78rem", outline: "none", borderRadius: "0px", cursor: "pointer" }}
                   >
                     <option>Transit Corridor Development (SA003 Correlation)</option>
                     <option>Waterfront Commercial Hubs (SA001 Correlation)</option>
@@ -246,14 +246,14 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <label className="block text-[var(--text-muted)] mb-1.5 text-[9px] font-mono tracking-widest uppercase font-bold">Brief Summary & Specific Requirements</label>
+                  <label style={{ display: "block", marginBottom: "0.4rem", fontFamily: "var(--font-mono)", fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", fontWeight: "bold" }}>Brief Summary & Specific Requirements</label>
                   <textarea
                     id="contact-input-notes"
                     rows={4}
                     placeholder="Provide specific notes on your tax status, corporate entity profiling, or desired takeover timeline..."
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                    className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-none px-3.5 py-3 text-xs text-[var(--text)] outline-none focus:border-[var(--gold)] transition-all font-sans placeholder-stone-750"
+                    style={{ display: "block", width: "100%", minHeight: "120px", background: "var(--bg)", border: "1px solid var(--border)", padding: "0.75rem 1rem", color: "var(--text)", fontFamily: "var(--font-sans)", fontSize: "0.78rem", outline: "none", borderRadius: "0px", resize: "vertical" }}
                   />
                 </div>
 
@@ -261,12 +261,14 @@ export default function ContactForm() {
                   id="contact-submit-btn"
                   type="submit"
                   disabled={submitting}
-                  className="w-full sm:w-auto px-8 py-3.5 bg-[var(--gold)] hover:bg-[var(--gold-light)] text-stone-950 font-mono tracking-widest uppercase text-xs font-bold rounded-none transition-all duration-350 flex items-center justify-center space-x-2.5 disabled:opacity-50 cursor-pointer"
+                  style={{ alignSelf: "flex-start", minWidth: "220px", height: "48px", background: "var(--gold)", color: "var(--bg)", fontFamily: "var(--font-mono)", fontSize: "0.75rem", letterSpacing: "0.12em", fontWeight: "bold", textTransform: "uppercase", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", borderRadius: "0px", cursor: "pointer", transition: "background 0.3s" }}
+                  onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.background = "var(--gold-light)"}
+                  onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.background = "var(--gold)"}
                 >
                   {submitting ? (
                     <>
                       <div className="animate-spin h-4 w-4 border-2 border-stone-950 border-t-transparent rounded-none" />
-                      <span>Submitting strategic dossier...</span>
+                      <span>Submitting dossier...</span>
                     </>
                   ) : (
                     <>

@@ -37,6 +37,10 @@ body {
   overflow-x: hidden;
 }
 
+section {
+  scroll-margin-top: 95px;
+}
+
 ::selection {
   background: var(--gold);
   color: var(--bg);

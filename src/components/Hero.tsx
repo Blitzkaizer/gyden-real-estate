@@ -58,7 +58,7 @@ export default function Hero() {
               transition={{ delay: 0.35, duration: 1, ease: [0.22, 1, 0.36, 1] }}
               style={{
                 fontFamily: "var(--font-serif)", fontSize: "clamp(2.6rem, 6vw, 4.8rem)",
-                fontWeight: 700, lineHeight: 1.1, color: "var(--text)",
+                fontWeight: 700, lineHeight: 1.1, color: "#FFFFFF",
                 marginBottom: "1.5rem", letterSpacing: "-0.01em"
               }}
             >
@@ -72,7 +72,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.55, duration: 0.9 }}
               style={{
-                fontSize: "1.05rem", color: "var(--text-muted)", maxWidth: "520px",
+                fontSize: "1.05rem", color: "rgba(255, 255, 255, 0.8)", maxWidth: "520px",
                 lineHeight: 1.75, marginBottom: "2.5rem"
               }}
             >
