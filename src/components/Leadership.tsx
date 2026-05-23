@@ -88,11 +88,11 @@ export default function Leadership() {
             transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             style={{ position: "relative" }}
           >
-            <div style={{ position: "relative", overflow: "hidden" }}>
+            <div style={{ position: "relative", overflow: "hidden", width: "100%", aspectRatio: "3/4" }}>
               <img
                 src={ceoImg}
                 alt="Gyden Heng — GREC CEO & Founder"
-                style={{ width: "100%", aspectRatio: "3/4", objectFit: "cover", objectPosition: "top", display: "block" }}
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
               />
               {/* Gold frame accent */}
               <div style={{

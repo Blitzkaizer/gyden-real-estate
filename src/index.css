@@ -2,25 +2,6 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #080808;
-  --bg-surface: #111111;
-  --bg-card: #161616;
-  --bg-elevated: #1a1a1a;
-  --gold: #C9A96E;
-  --gold-light: #E8C98A;
-  --gold-dim: rgba(201, 169, 110, 0.15);
-  --gold-border: rgba(201, 169, 110, 0.25);
-  --text: #F5F0E8;
-  --text-muted: #9A9180;
-  --text-dim: #5C574F;
-  --border: rgba(255,255,255,0.07);
-  --border-gold: rgba(201,169,110,0.2);
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-mono: 'Space Mono', monospace;
-}
-
-[data-theme="light"] {
   --bg: #FAFAFA;
   --bg-surface: #FFFFFF;
   --bg-card: #F1F1F1;
@@ -34,6 +15,9 @@
   --text-dim: #948C7E;
   --border: rgba(0, 0, 0, 0.08);
   --border-gold: rgba(169, 138, 78, 0.15);
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Space Mono', monospace;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

@@ -3,7 +3,6 @@ export default function Footer() {
     { label: "Properties", id: "properties" },
     { label: "Find a Match", id: "matcher" },
     { label: "Leadership", id: "leadership" },
-    { label: "AI Advisor", id: "advisor" },
     { label: "Contact", id: "contact" },
   ];
 

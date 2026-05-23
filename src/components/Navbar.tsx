@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 interface NavbarProps {
   activeSection: string;
@@ -11,25 +11,12 @@ const navLinks = [
   { id: "properties", label: "Properties" },
   { id: "matcher", label: "Find a Match" },
   { id: "leadership", label: "Leadership" },
-  { id: "advisor", label: "AI Advisor" },
   { id: "contact", label: "Contact" },
 ];
 
 export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem("theme") || "dark";
-  });
-
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => prev === "dark" ? "light" : "dark");
-  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -50,8 +37,8 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
         style={{
           position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
           padding: scrolled ? "0.9rem 0" : "1.4rem 0",
-          background: scrolled ? "rgba(8,8,8,0.97)" : "transparent",
-          borderBottom: scrolled ? "1px solid rgba(201,169,110,0.12)" : "1px solid transparent",
+          background: scrolled ? "var(--bg-surface)" : "transparent",
+          borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
           backdropFilter: scrolled ? "blur(20px)" : "none",
           transition: "all 0.4s ease",
         }}
@@ -117,18 +104,6 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
             >
               Book Consultation
             </button>
-            <button
-              id="theme-toggle-btn"
-              onClick={toggleTheme}
-              style={{
-                background: "none", border: "none", color: "var(--gold)",
-                cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
-                padding: "8px", marginLeft: "0.5rem"
-              }}
-              title="Toggle light/dark mode"
-            >
-              {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
           </nav>
 
           {/* Mobile Hamburger */}
@@ -152,7 +127,7 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
             exit={{ opacity: 0 }}
             style={{
               position: "fixed", inset: 0, zIndex: 200,
-              background: "rgba(8,8,8,0.98)", backdropFilter: "blur(24px)",
+              background: "var(--bg-surface)", backdropFilter: "blur(24px)",
               display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
               gap: "2rem",
             }}
@@ -179,22 +154,6 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
                 {link.label}
               </motion.button>
             ))}
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: navLinks.length * 0.08 }}
-              onClick={toggleTheme}
-              style={{
-                background: "none", border: "1px solid var(--gold-border)",
-                color: "var(--gold)", fontFamily: "var(--font-sans)", fontSize: "0.85rem",
-                fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase",
-                padding: "0.6rem 1.5rem", cursor: "pointer", display: "flex", alignItems: "center", gap: "8px",
-                marginTop: "1rem"
-              }}
-            >
-              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-              <span>{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
-            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
