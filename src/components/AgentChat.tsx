@@ -116,9 +116,9 @@ export default function AgentChat() {
   };
 
   return (
-    <section id="advisor" className="py-24 bg-stone-900 border-t border-stone-800 text-stone-100">
-      <motion.div 
-        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
+    <section id="advisor" style={{ padding: "7rem 0", background: "var(--bg-surface)", borderTop: "1px solid var(--border)" }}>
+      <motion.div
+        className="container"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
