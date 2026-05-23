@@ -127,40 +127,40 @@ export default function AgentChat() {
         
         {/* Advising Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center space-x-2 bg-stone-950 px-3 py-1.5 rounded-full border border-stone-850 mb-3.5">
-            <Sparkles className="h-4 w-4 text-emerald-400" />
-            <span className="text-xs font-mono text-stone-300">Google Gemini & GREC Insights</span>
+          <div className="inline-flex items-center space-x-2 bg-[var(--bg)] px-3.5 py-1.5 rounded-none border border-[var(--gold-border)] mb-3.5">
+            <Sparkles className="h-3.5 w-3.5 text-[var(--gold)]" />
+            <span className="text-[9px] font-mono text-[var(--text-muted)] uppercase tracking-widest font-bold">Google Gemini & GREC Insights</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight font-sans">
+          <h2 className="text-2xl sm:text-3xl font-normal font-serif tracking-tight text-[var(--text)]">
             Interactive Investment Advisor
           </h2>
-          <p className="text-xs text-stone-400 mt-2 leading-relaxed">
+          <p className="text-xs text-[var(--text-muted)] mt-2 leading-relaxed">
             Gain corporate consultations on acquisitions, yields, and strategic land deeds instantly. Ask anything below or choose one of our predefined client prompts.
           </p>
         </div>
 
         {/* Chat Console Frame */}
-        <div className="bg-stone-950 border border-stone-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[580px]">
+        <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-none shadow-2xl flex flex-col h-[580px]">
           
           {/* Active Status Header */}
-          <div className="bg-stone-900/90 px-6 py-4 border-b border-stone-800 flex items-center justify-between">
+          <div className="bg-[var(--bg-surface)] px-6 py-4 border-b border-[var(--border)] flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="relative">
-                <span className="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-emerald-500 ring-2 ring-stone-950" />
-                <div className="bg-emerald-500/10 p-2 rounded-lg border border-emerald-500/30">
-                  <MessageSquare className="h-4.5 w-4.5 text-emerald-400" />
+                <span className="absolute bottom-0 right-0 block h-2 w-2 rounded-none bg-[var(--gold)] ring-1 ring-stone-950" />
+                <div className="bg-[var(--bg)] p-2 rounded-none border border-[var(--gold-border)]">
+                  <MessageSquare className="h-4 w-4 text-[var(--gold)]" />
                 </div>
               </div>
               <div>
-                <h4 className="text-xs font-bold text-stone-100 font-mono tracking-wide">GYDEN IA ARCHIVE PORTAL</h4>
-                <p className="text-[10px] text-stone-405 text-stone-400">Yield and Asset Allocation Advisory</p>
+                <h4 className="text-[10px] font-bold text-[var(--text)] font-mono tracking-widest uppercase">GYDEN IA ARCHIVE PORTAL</h4>
+                <p className="text-[9px] text-[var(--gold)] font-mono uppercase tracking-wider mt-0.5">Yield and Asset Allocation Advisory</p>
               </div>
             </div>
 
             <button
               id="reset-chat-button"
               onClick={resetConversation}
-              className="text-[11px] font-mono text-stone-450 text-stone-400 hover:text-emerald-400 flex items-center space-x-1.5 px-2.5 py-1 rounded bg-stone-950 border border-stone-850 cursor-pointer"
+              className="text-[9px] font-mono tracking-widest uppercase text-[var(--text-muted)] hover:text-[var(--gold)] flex items-center space-x-1.5 px-3 py-1.5 bg-[var(--bg)] border border-[var(--border)] rounded-none cursor-pointer transition-colors"
             >
               <RefreshCw className="h-3 w-3" />
               <span>Clear Ledger</span>
@@ -179,22 +179,22 @@ export default function AgentChat() {
                   }`}
                 >
                   {isAdvisor && (
-                    <div className="bg-emerald-500 text-stone-950 text-[10px] font-mono font-bold h-7.5 w-7.5 rounded-lg flex items-center justify-center shrink-0 shadow-md">
+                    <div className="bg-[var(--gold)] text-stone-950 text-[9px] font-mono font-bold h-8 w-8 rounded-none flex items-center justify-center shrink-0">
                       GREC
                     </div>
                   )}
 
                   <div
-                    className={`max-w-[82%] rounded-xl p-4 text-xs leading-relaxed font-sans ${
+                    className={`max-w-[80%] rounded-none p-4 text-xs leading-relaxed font-sans ${
                       isAdvisor
-                        ? "bg-stone-900 text-stone-250 border border-stone-870 text-stone-300"
-                        : "bg-emerald-500 text-stone-950 font-medium"
+                        ? "bg-[var(--bg-surface)] text-[var(--text)] border border-[var(--border)]"
+                        : "bg-[var(--gold)] text-stone-950 font-medium"
                     }`}
                   >
                     <p className="whitespace-pre-line">{msg.text}</p>
                     <span
                       className={`text-[9px] block mt-1.5 text-right font-mono font-normal ${
-                        isAdvisor ? "text-stone-500" : "text-stone-800"
+                        isAdvisor ? "text-[var(--text-dim)]" : "text-stone-800"
                       }`}
                     >
                       {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
@@ -202,7 +202,7 @@ export default function AgentChat() {
                   </div>
 
                   {!isAdvisor && (
-                    <div className="bg-stone-800 text-stone-300 text-[10px] uppercase font-mono font-bold h-7.5 w-7.5 rounded-lg flex items-center justify-center shrink-0">
+                    <div className="bg-[var(--bg-surface)] border border-[var(--border)] text-[var(--text-muted)] text-[9px] uppercase font-mono font-bold h-8 w-8 rounded-none flex items-center justify-center shrink-0">
                       C
                     </div>
                   )}
@@ -212,10 +212,10 @@ export default function AgentChat() {
 
             {isTyping && (
               <div className="flex items-start space-x-3.5">
-                <div className="bg-emerald-500 text-stone-950 text-[10px] font-mono font-bold h-7.5 w-7.5 rounded-lg flex items-center justify-center shrink-0 animate-pulse">
+                <div className="bg-[var(--gold)] text-stone-950 text-[9px] font-mono font-bold h-8 w-8 rounded-none flex items-center justify-center shrink-0 animate-pulse">
                   GREC
                 </div>
-                <div className="bg-stone-900 border border-stone-850 rounded-xl px-4 py-3 text-xs text-stone-400 font-mono flex items-center space-x-2">
+                <div className="bg-[var(--bg-surface)] border border-[var(--border)] rounded-none px-4 py-3 text-xs text-[var(--text-muted)] font-mono flex items-center space-x-2">
                   <span className="dot animate-bounce">.</span>
                   <span className="dot animate-bounce delay-100">.</span>
                   <span className="dot animate-bounce delay-200">.</span>
@@ -228,8 +228,8 @@ export default function AgentChat() {
           </div>
 
           {/* Quick Preset Prompts Row */}
-          <div className="px-6 py-2 bg-stone-950 border-t border-stone-900">
-            <span className="text-[9px] font-bold text-stone-500 uppercase block mb-1.5 font-mono">
+          <div className="px-6 py-3 bg-[var(--bg)] border-t border-[var(--border)]">
+            <span className="text-[8px] font-bold text-[var(--text-dim)] uppercase block mb-2 font-mono tracking-widest">
               Suggested Client Queries (Auto-fill)
             </span>
             <div className="flex flex-wrap gap-1.5">
@@ -239,9 +239,9 @@ export default function AgentChat() {
                   id={`preset-prompt-${idx}`}
                   disabled={isTyping}
                   onClick={() => handleSendMessage(q.prompt)}
-                  className="bg-stone-900 hover:bg-stone-850 text-stone-300 border border-stone-850 text-[10px] px-2.5 py-1.5 rounded-lg text-left transition-colors font-mono hover:text-emerald-400 inline-flex items-center space-x-1 cursor-pointer"
+                  className="bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] text-[var(--text-muted)] border border-[var(--border)] hover:border-[var(--gold)] text-[9px] px-3 py-2 rounded-none text-left transition-all font-mono hover:text-[var(--gold)] inline-flex items-center space-x-1.5 cursor-pointer uppercase tracking-wider"
                 >
-                  <Bookmark className="h-3 w-3 inline text-emerald-500/70" />
+                  <Bookmark className="h-3 w-3 inline text-[var(--gold)]/70" />
                   <span>{q.label}</span>
                 </button>
               ))}
@@ -249,7 +249,7 @@ export default function AgentChat() {
           </div>
 
           {/* Chat Controller Prompt Input */}
-          <div className="p-4 bg-stone-900 border-t border-stone-800 flex items-center gap-3">
+          <div className="p-4 bg-[var(--bg-surface)] border-t border-[var(--border)] flex items-center gap-3">
             <input
               id="advisor-chat-input"
               type="text"
@@ -258,13 +258,13 @@ export default function AgentChat() {
               onChange={(e) => setUserInput(e.target.value)}
               onKeyDown={handleKeyPress}
               disabled={isTyping}
-              className="flex-1 bg-stone-950 border border-stone-800 rounded-lg px-4 py-2.5 text-stone-150 text-xs focus:outline-none focus:border-emerald-500/50 transition-all font-sans text-stone-200"
+              className="flex-1 bg-[var(--bg)] border border-[var(--border)] rounded-none px-4 py-3 text-xs text-[var(--text)] placeholder-[var(--text-dim)] outline-none focus:border-[var(--gold)] transition-all font-sans"
             />
             <button
               id="advisor-send-msg-btn"
               onClick={() => handleSendMessage()}
               disabled={isTyping || !userInput.trim()}
-              className="px-4 py-2.5 bg-emerald-500 text-stone-950 font-bold rounded-lg hover:bg-emerald-400 transition-all disabled:opacity-50 flex items-center justify-center cursor-pointer"
+              className="px-5 py-3 bg-[var(--gold)] text-stone-950 font-bold rounded-none hover:bg-[var(--gold-light)] transition-all disabled:opacity-50 flex items-center justify-center cursor-pointer"
             >
               <Send className="h-4 w-4" />
             </button>
@@ -274,8 +274,8 @@ export default function AgentChat() {
 
         {/* Offline simulated warning element */}
         {errorMessage && (
-          <div className="mt-4 p-3 bg-emerald-500/5 border border-emerald-500/30 text-emerald-400 text-xs rounded-xl flex items-center space-x-2.5 font-mono">
-            <AlertCircle className="h-4.5 w-4.5 shrink-0" />
+          <div className="mt-4 p-3 bg-[var(--bg-surface)] border border-[var(--border)] text-[var(--gold)] text-[10px] rounded-none flex items-center space-x-2.5 font-mono tracking-wide">
+            <AlertCircle className="h-4 w-4 shrink-0 text-[var(--gold)]" />
             <span>{errorMessage}</span>
           </div>
         )}

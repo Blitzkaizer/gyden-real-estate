@@ -49,9 +49,9 @@ export default function Footer() {
           <div>
             <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "1.25rem" }}>Contact</h4>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem", fontSize: "0.82rem", color: "var(--text-dim)", lineHeight: 1.6 }}>
-              <span>Johor Bahru, Malaysia</span>
-              <span>info@gydenrec.com</span>
-              <span>+60 7-XXX XXXX</span>
+              <span>Johor Bahru CBD, Malaysia</span>
+              <span>info.gydenrealestate@grec.com</span>
+              <span>+60 7-224 14088</span>
             </div>
           </div>
         </div>

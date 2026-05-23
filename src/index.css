@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
 
 :root {
   --bg: #080808;
@@ -17,6 +18,22 @@
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-mono: 'Space Mono', monospace;
+}
+
+[data-theme="light"] {
+  --bg: #FAFAFA;
+  --bg-surface: #FFFFFF;
+  --bg-card: #F1F1F1;
+  --bg-elevated: #E5E5E5;
+  --gold: #A98A4E;
+  --gold-light: #C9A96E;
+  --gold-dim: rgba(169, 138, 78, 0.1);
+  --gold-border: rgba(169, 138, 78, 0.2);
+  --text: #1C1A17;
+  --text-muted: #6B6355;
+  --text-dim: #948C7E;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-gold: rgba(169, 138, 78, 0.15);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

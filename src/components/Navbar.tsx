@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 interface NavbarProps {
   activeSection: string;
@@ -18,6 +18,18 @@ const navLinks = [
 export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "dark";
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === "dark" ? "light" : "dark");
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -105,6 +117,18 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
             >
               Book Consultation
             </button>
+            <button
+              id="theme-toggle-btn"
+              onClick={toggleTheme}
+              style={{
+                background: "none", border: "none", color: "var(--gold)",
+                cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
+                padding: "8px", marginLeft: "0.5rem"
+              }}
+              title="Toggle light/dark mode"
+            >
+              {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
           </nav>
 
           {/* Mobile Hamburger */}
@@ -155,6 +179,22 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
                 {link.label}
               </motion.button>
             ))}
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navLinks.length * 0.08 }}
+              onClick={toggleTheme}
+              style={{
+                background: "none", border: "1px solid var(--gold-border)",
+                color: "var(--gold)", fontFamily: "var(--font-sans)", fontSize: "0.85rem",
+                fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase",
+                padding: "0.6rem 1.5rem", cursor: "pointer", display: "flex", alignItems: "center", gap: "8px",
+                marginTop: "1rem"
+              }}
+            >
+              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+              <span>{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>

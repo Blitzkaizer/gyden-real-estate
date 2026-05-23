@@ -32,14 +32,16 @@ export default function Hero() {
       }} />
 
       {/* Content */}
-      <motion.div style={{ opacity }} className="container" style2={{ position: "relative", zIndex: 2, width: "100%", paddingTop: "7rem", paddingBottom: "5rem" }}>
-        <div style={{ position: "relative", zIndex: 2, width: "100%", paddingTop: "7rem", paddingBottom: "5rem" }} className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            style={{ maxWidth: "720px" }}
-          >
+      <motion.div 
+        style={{ opacity, position: "relative", zIndex: 2, width: "100%", paddingTop: "7rem", paddingBottom: "5rem" }} 
+        className="container"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          style={{ maxWidth: "720px" }}
+        >
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -112,7 +114,6 @@ export default function Hero() {
               </button>
             </motion.div>
           </motion.div>
-        </div>
       </motion.div>
 
       {/* Scroll indicator */}
