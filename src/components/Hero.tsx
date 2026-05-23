@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { ShieldCheck, Award, Users, BarChart3, ChevronDown, CheckCircle, MapPin } from "lucide-react";
-import gydenHengImg from "../assets/images/gyden_heng_1779446997273.jpg";
+import gydenHengImg from "../assets/images/gyden_heng_1779540471996.jpg";
 
 interface HeroProps {
   onExploreProperties: () => void;
