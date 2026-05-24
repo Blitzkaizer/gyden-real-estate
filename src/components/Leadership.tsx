@@ -44,7 +44,7 @@ export default function Leadership() {
             <div style={{ width: "48px", height: "1px", background: "var(--gold)", marginBottom: "2rem" }} />
 
             <p style={{ fontSize: "0.95rem", color: "var(--text-muted)", lineHeight: 1.85, marginBottom: "1.25rem" }}>
-              With over 7 years of deep expertise in Johor Bahru's evolving real estate landscape, Gyden Heng founded GYDEN Real Estate Group with a singular mission — to deliver institutional-grade property intelligence and asset allocation to private and corporate investors.
+              With an established track record in Johor Bahru's evolving real estate landscape, Gyden Heng founded GYDEN Real Estate Group with a singular mission — to deliver institutional-grade property intelligence and asset allocation to private and corporate investors.
             </p>
             <p style={{ fontSize: "0.95rem", color: "var(--text-muted)", lineHeight: 1.85, marginBottom: "2.5rem" }}>
               His portfolio spans commercial waterfront developments, freehold luxury residences, and the rapidly appreciating RTS Transit Corridor — areas where GREC's CEO-direct vetting process ensures clients access only the highest-quality acquisitions.

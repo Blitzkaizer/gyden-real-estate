@@ -107,7 +107,7 @@ export default function ContactForm() {
                   <div style={{ display: "flex", flexDirection: "column", gap: "2px", flex: 1 }}>
                     <span style={{ fontSize: "0.75rem", fontWeight: "bold", color: "var(--text)", display: "block", lineHeight: 1.2 }}>Gyden Heng</span>
                     <span style={{ fontSize: "0.68rem", color: "var(--gold)", fontFamily: "var(--font-mono)", fontWeight: "bold", display: "block", textTransform: "uppercase", letterSpacing: "0.08em" }}>CEO & Founder, GYDEN Group</span>
-                    <span style={{ fontSize: "0.8rem", color: "var(--text-muted)", display: "block", marginTop: "4px", lineHeight: "1.5" }}>CEO of GREC with 7+ years of elite real estate experience specializing in commercial acquisitions and bespoke yield optimization.</span>
+                    <span style={{ fontSize: "0.8rem", color: "var(--text-muted)", display: "block", marginTop: "4px", lineHeight: "1.5" }}>CEO of GREC specializing in institutional-grade commercial acquisitions, joint-venture portfolios, and active asset management.</span>
                   </div>
                 </div>
               </div>
