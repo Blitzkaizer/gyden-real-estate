@@ -48,9 +48,12 @@ export default function Footer() {
           <div className="footer-contact">
             <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "1.25rem", fontWeight: 700 }}>Contact</h4>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", fontSize: "0.85rem", color: "var(--text-dim)", lineHeight: 1.6 }}>
-              <span>Johor Bahru CBD, Malaysia</span>
-              <span style={{ wordBreak: "break-all" }}>info.gydenrealestate@grec.com</span>
-              <span>+60 7-224 14088</span>
+              <span>Johor Bahru, Malaysia, 81750</span>
+              <a href="mailto:gydenheng@gmail.com" style={{ color: "inherit", textDecoration: "none", transition: "color 0.2s", wordBreak: "break-all" }} onMouseEnter={e => e.currentTarget.style.color = "var(--gold)"} onMouseLeave={e => e.currentTarget.style.color = "var(--text-dim)"}>gydenheng@gmail.com</a>
+              <a href="tel:+60149840409" style={{ color: "inherit", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.currentTarget.style.color = "var(--gold)"} onMouseLeave={e => e.currentTarget.style.color = "var(--text-dim)"}>+60 14-984 0409</a>
+              <a href="https://www.facebook.com/GydenPage/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold)", textDecoration: "none", fontSize: "0.75rem", fontFamily: "var(--font-mono)", fontWeight: "bold", marginTop: "0.5rem", display: "inline-flex", alignItems: "center", gap: "4px", transition: "color 0.2s" }} onMouseEnter={e => e.currentTarget.style.color = "var(--gold-light)"} onMouseLeave={e => e.currentTarget.style.color = "var(--gold)"}>
+                Facebook Page
+              </a>
             </div>
           </div>
         </div>

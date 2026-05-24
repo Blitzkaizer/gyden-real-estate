@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { Mail, Phone, MapPin, User, Calendar, CheckSquare, Send, CheckCircle2, DollarSign } from "lucide-react";
+import { Mail, Phone, MapPin, User, Calendar, CheckSquare, Send, CheckCircle2, DollarSign, Facebook } from "lucide-react";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -118,15 +118,19 @@ export default function ContactForm() {
             <div style={{ marginTop: "2rem", display: "flex", flexDirection: "column", gap: "1rem", paddingTop: "1.5rem", borderTop: "1px solid var(--border)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}>
                 <MapPin style={{ height: "16px", width: "16px", color: "var(--gold)", flexShrink: 0 }} />
-                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-muted)" }}>Johor Bahru Central Business District (CBD), Malaysia</span>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-muted)" }}>Johor Bahru, Malaysia, 81750</span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}>
                 <Mail style={{ height: "16px", width: "16px", color: "var(--gold)", flexShrink: 0 }} />
-                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.08em", color: "var(--text-muted)" }}>info.gydenrealestate@grec.com</span>
+                <a href="mailto:gydenheng@gmail.com" style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.08em", color: "var(--text-muted)", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.currentTarget.style.color = "var(--gold)"} onMouseLeave={e => e.currentTarget.style.color = "var(--text-muted)"}>gydenheng@gmail.com</a>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}>
                 <Phone style={{ height: "16px", width: "16px", color: "var(--gold)", flexShrink: 0 }} />
-                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-muted)" }}>+60 7-224 14088 (Johor Office Desk)</span>
+                <a href="tel:+60149840409" style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-muted)", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.currentTarget.style.color = "var(--gold)"} onMouseLeave={e => e.currentTarget.style.color = "var(--text-muted)"}>+60 14-984 0409</a>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}>
+                <Facebook style={{ height: "16px", width: "16px", color: "var(--gold)", flexShrink: 0 }} />
+                <a href="https://www.facebook.com/GydenPage/" target="_blank" rel="noopener noreferrer" style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--gold)", textDecoration: "none", fontWeight: "bold", transition: "color 0.2s" }} onMouseEnter={e => e.currentTarget.style.color = "var(--gold-light)"} onMouseLeave={e => e.currentTarget.style.color = "var(--gold)"}>Facebook.com/GydenPage</a>
               </div>
             </div>
 
