@@ -72,20 +72,20 @@ export default function ContactForm() {
               
               {/* Vibe badge */}
               <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "var(--bg-surface)", border: "1px solid var(--gold-border)", padding: "0.35rem 0.85rem" }}>
-                <span style={{ fontSize: "0.56rem", color: "var(--gold)", fontFamily: "var(--font-mono)", letterSpacing: "0.15em", fontWeight: "bold", textTransform: "uppercase" }}>GREC ADVISORY OFFICE</span>
+                <span style={{ fontSize: "0.72rem", color: "var(--gold)", fontFamily: "var(--font-mono)", letterSpacing: "0.15em", fontWeight: "bold", textTransform: "uppercase" }}>GREC ADVISORY OFFICE</span>
               </div>
 
               <h2 className="text-3xl sm:text-4xl font-normal font-serif tracking-tight text-[var(--text)] leading-tight">
                 Secure a Strategy Session
               </h2>
               
-              <p className="text-[var(--text-muted)] text-xs sm:text-sm leading-relaxed font-sans">
+              <p className="text-[var(--text-muted)] text-sm leading-relaxed font-sans">
                 Connect directly with GYDEN Real Estate Group's executive desk. We consult on Malaysian tax structures, local joint-venture options, RTS station correlations, and corporate acquisitions.
               </p>
 
               {/* CEO Guarantee Highlight Card */}
               <div style={{ background: "var(--bg-surface)", padding: "1.5rem", border: "1px solid var(--border)" }}>
-                <blockquote className="text-xs text-[var(--text-muted)] italic leading-relaxed font-serif">
+                <blockquote className="text-sm text-[var(--text-muted)] italic leading-relaxed font-serif">
                   "Every capital allocation request is reviewed personally under our strict GREC portfolio standard. If you present an investment thesis, we will match it against active title deeds within Johor's premier corridors."
                 </blockquote>
                 <div style={{ display: "flex", gap: "0.875rem", marginTop: "1.25rem", paddingTop: "1.25rem", borderTop: "1px solid var(--border)", alignItems: "flex-start" }}>
@@ -106,8 +106,8 @@ export default function ContactForm() {
                   </div>
                   <div style={{ display: "flex", flexDirection: "column", gap: "2px", flex: 1 }}>
                     <span style={{ fontSize: "0.75rem", fontWeight: "bold", color: "var(--text)", display: "block", lineHeight: 1.2 }}>Gyden Heng</span>
-                    <span style={{ fontSize: "0.56rem", color: "var(--gold)", fontFamily: "var(--font-mono)", fontWeight: "bold", display: "block", textTransform: "uppercase", letterSpacing: "0.08em" }}>CEO & Founder, GYDEN Group</span>
-                    <span style={{ fontSize: "0.625rem", color: "var(--text-muted)", display: "block", marginTop: "4px", lineHeight: "1.5" }}>CEO of GREC with 7+ years of elite real estate experience specializing in commercial acquisitions and bespoke yield optimization.</span>
+                    <span style={{ fontSize: "0.68rem", color: "var(--gold)", fontFamily: "var(--font-mono)", fontWeight: "bold", display: "block", textTransform: "uppercase", letterSpacing: "0.08em" }}>CEO & Founder, GYDEN Group</span>
+                    <span style={{ fontSize: "0.8rem", color: "var(--text-muted)", display: "block", marginTop: "4px", lineHeight: "1.5" }}>CEO of GREC with 7+ years of elite real estate experience specializing in commercial acquisitions and bespoke yield optimization.</span>
                   </div>
                 </div>
               </div>
@@ -118,19 +118,19 @@ export default function ContactForm() {
             <div style={{ marginTop: "2rem", display: "flex", flexDirection: "column", gap: "1rem", paddingTop: "1.5rem", borderTop: "1px solid var(--border)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}>
                 <MapPin style={{ height: "16px", width: "16px", color: "var(--gold)", flexShrink: 0 }} />
-                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-muted)" }}>Johor Bahru, Malaysia, 81750</span>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.78rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-muted)" }}>Johor Bahru, Malaysia, 81750</span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}>
                 <Mail style={{ height: "16px", width: "16px", color: "var(--gold)", flexShrink: 0 }} />
-                <a href="mailto:gydenheng@gmail.com" style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.08em", color: "var(--text-muted)", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.currentTarget.style.color = "var(--gold)"} onMouseLeave={e => e.currentTarget.style.color = "var(--text-muted)"}>gydenheng@gmail.com</a>
+                <a href="mailto:gydenheng@gmail.com" style={{ fontFamily: "var(--font-mono)", fontSize: "0.78rem", letterSpacing: "0.08em", color: "var(--text-muted)", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.currentTarget.style.color = "var(--gold)"} onMouseLeave={e => e.currentTarget.style.color = "var(--text-muted)"}>gydenheng@gmail.com</a>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}>
                 <Phone style={{ height: "16px", width: "16px", color: "var(--gold)", flexShrink: 0 }} />
-                <a href="tel:+60149840409" style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-muted)", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.currentTarget.style.color = "var(--gold)"} onMouseLeave={e => e.currentTarget.style.color = "var(--text-muted)"}>+60 14-984 0409</a>
+                <a href="tel:+60149840409" style={{ fontFamily: "var(--font-mono)", fontSize: "0.78rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-muted)", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.currentTarget.style.color = "var(--gold)"} onMouseLeave={e => e.currentTarget.style.color = "var(--text-muted)"}>+60 14-984 0409</a>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}>
                 <Facebook style={{ height: "16px", width: "16px", color: "var(--gold)", flexShrink: 0 }} />
-                <a href="https://www.facebook.com/GydenPage/" target="_blank" rel="noopener noreferrer" style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--gold)", textDecoration: "none", fontWeight: "bold", transition: "color 0.2s" }} onMouseEnter={e => e.currentTarget.style.color = "var(--gold-light)"} onMouseLeave={e => e.currentTarget.style.color = "var(--gold)"}>Facebook.com/GydenPage</a>
+                <a href="https://www.facebook.com/GydenPage/" target="_blank" rel="noopener noreferrer" style={{ fontFamily: "var(--font-mono)", fontSize: "0.78rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--gold)", textDecoration: "none", fontWeight: "bold", transition: "color 0.2s" }} onMouseEnter={e => e.currentTarget.style.color = "var(--gold-light)"} onMouseLeave={e => e.currentTarget.style.color = "var(--gold)"}>Facebook.com/GydenPage</a>
               </div>
             </div>
 

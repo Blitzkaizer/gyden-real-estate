@@ -11,8 +11,8 @@
   --gold-dim: rgba(169, 138, 78, 0.1);
   --gold-border: rgba(169, 138, 78, 0.2);
   --text: #1C1A17;
-  --text-muted: #6B6355;
-  --text-dim: #948C7E;
+  --text-muted: #554D41;
+  --text-dim: #776F62;
   --border: rgba(0, 0, 0, 0.08);
   --border-gold: rgba(169, 138, 78, 0.15);
   --font-serif: 'Playfair Display', Georgia, serif;
@@ -80,8 +80,8 @@ input, select, textarea { font-family: var(--font-sans); }
 /* Section label */
 .section-label {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold);
   font-weight: 700;

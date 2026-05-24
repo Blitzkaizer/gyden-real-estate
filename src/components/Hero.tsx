@@ -126,7 +126,7 @@ export default function Hero() {
           zIndex: 2, display: "flex", flexDirection: "column", alignItems: "center", gap: "8px"
         }}
       >
-        <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", letterSpacing: "0.2em", color: "var(--text-dim)", textTransform: "uppercase" }}>Scroll</span>
+        <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.2em", color: "var(--text-dim)", textTransform: "uppercase" }}>Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}

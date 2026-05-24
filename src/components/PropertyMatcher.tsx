@@ -93,7 +93,7 @@ export default function PropertyMatcher() {
                 {steps.map((s, i) => (
                   <div key={s.id} style={{ flex: 1, display: "flex", flexDirection: "column", gap: "6px" }}>
                     <div style={{ height: "2px", background: i <= currentStep ? "var(--gold)" : "var(--border)", transition: "background 0.4s" }} />
-                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.5rem", letterSpacing: "0.12em", textTransform: "uppercase", color: i <= currentStep ? "var(--gold)" : "var(--text-dim)" }}>{s.label}</span>
+                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", letterSpacing: "0.12em", textTransform: "uppercase", color: i <= currentStep ? "var(--gold)" : "var(--text-dim)" }}>{s.label}</span>
                   </div>
                 ))}
               </div>
@@ -119,7 +119,7 @@ export default function PropertyMatcher() {
                           padding: "0.7rem 1.2rem", background: "transparent",
                           border: `1px solid ${answers[steps[currentStep].id] === opt ? "var(--gold)" : "var(--border)"}`,
                           color: answers[steps[currentStep].id] === opt ? "var(--gold)" : "var(--text-muted)",
-                          fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.08em",
+                          fontFamily: "var(--font-mono)", fontSize: "0.8rem", letterSpacing: "0.08em",
                           cursor: "pointer", transition: "all 0.2s",
                         }}
                         onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--gold)"; (e.currentTarget as HTMLElement).style.color = "var(--gold)"; }}
@@ -138,10 +138,10 @@ export default function PropertyMatcher() {
               </AnimatePresence>
 
               <div style={{ display: "flex", justifyContent: "space-between", marginTop: "2.5rem", paddingTop: "1.5rem", borderTop: "1px solid var(--border)" }}>
-                <button onClick={goBack} disabled={currentStep === 0} style={{ background: "none", border: "none", color: currentStep === 0 ? "var(--text-dim)" : "var(--text-muted)", fontFamily: "var(--font-sans)", fontSize: "0.8rem", cursor: currentStep === 0 ? "default" : "pointer" }}>
+                <button onClick={goBack} disabled={currentStep === 0} style={{ background: "none", border: "none", color: currentStep === 0 ? "var(--text-dim)" : "var(--text-muted)", fontFamily: "var(--font-sans)", fontSize: "0.85rem", cursor: currentStep === 0 ? "default" : "pointer" }}>
                   ← Back
                 </button>
-                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", color: "var(--text-dim)", letterSpacing: "0.1em" }}>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "var(--text-muted)", letterSpacing: "0.1em" }}>
                   Step {currentStep + 1} of {steps.length}
                 </span>
               </div>
@@ -159,22 +159,22 @@ export default function PropertyMatcher() {
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2rem" }}>
                 {matched.map((p, i) => (
                   <motion.div
-                    key={p.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    style={{ display: "flex", gap: "1.2rem", background: "var(--bg-card)", border: "1px solid var(--border-gold)", padding: "1rem", alignItems: "center" }}
+                     key={p.id}
+                     initial={{ opacity: 0, y: 20 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     transition={{ delay: i * 0.1 }}
+                     style={{ display: "flex", gap: "1.2rem", background: "var(--bg-card)", border: "1px solid var(--border-gold)", padding: "1rem", alignItems: "center" }}
                   >
                     <img src={p.image} alt={p.title} style={{ width: "90px", height: "70px", objectFit: "cover", flexShrink: 0 }} />
                     <div style={{ flex: 1 }}>
                       <div style={{ display: "flex", gap: "0.4rem", marginBottom: "0.4rem" }}>
-                        <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", padding: "2px 7px", background: "var(--gold)", color: "var(--bg)", fontWeight: 700 }}>{p.id}</span>
-                        <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", padding: "2px 7px", border: "1px solid var(--gold-border)", color: "var(--gold)" }}>{p.type}</span>
+                        <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", padding: "3px 8px", background: "var(--gold)", color: "var(--bg)", fontWeight: 700 }}>{p.id}</span>
+                        <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", padding: "3px 8px", border: "1px solid var(--gold-border)", color: "var(--gold)" }}>{p.type}</span>
                       </div>
-                      <div style={{ fontFamily: "var(--font-serif)", fontSize: "1rem", fontWeight: 700, color: "var(--text)", marginBottom: "0.3rem" }}>{p.title}</div>
+                      <div style={{ fontFamily: "var(--font-serif)", fontSize: "1.05rem", fontWeight: 700, color: "var(--text)", marginBottom: "0.3rem" }}>{p.title}</div>
                       <div style={{ display: "flex", gap: "1.5rem" }}>
-                        <span style={{ fontSize: "0.75rem", color: "var(--gold)", fontWeight: 600 }}>{p.price}</span>
-                        <span style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>{p.yield} Yield</span>
+                        <span style={{ fontSize: "0.8rem", color: "var(--gold)", fontWeight: 600 }}>{p.price}</span>
+                        <span style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>{p.yield} Yield</span>
                       </div>
                     </div>
                     <button

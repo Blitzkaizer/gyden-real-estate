@@ -170,12 +170,12 @@ function PropertyCard({ property, index }: { property: Property; index: number }
           />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(8,8,8,0.75) 0%, transparent 50%)" }} />
           <div style={{ position: "absolute", top: "1rem", left: "1rem", display: "flex", gap: "0.4rem" }}>
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", padding: "3px 8px", background: "var(--gold)", color: "var(--bg)", fontWeight: 700 }}>{property.id}</span>
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", padding: "3px 8px", background: "rgba(8,8,8,0.85)", color: "var(--gold)", border: "1px solid var(--gold-border)" }}>{property.type}</span>
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", padding: "3px 8px", background: "var(--gold)", color: "var(--bg)", fontWeight: 700 }}>{property.id}</span>
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", padding: "3px 8px", background: "rgba(8,8,8,0.85)", color: "var(--gold)", border: "1px solid var(--gold-border)" }}>{property.type}</span>
           </div>
           <div style={{ position: "absolute", top: "1rem", right: "1rem" }}>
             <span style={{
-              fontFamily: "var(--font-mono)", fontSize: "0.5rem", padding: "3px 8px",
+              fontFamily: "var(--font-mono)", fontSize: "0.65rem", padding: "3px 8px",
               background: "rgba(8,8,8,0.85)", color: statusColor[property.status] || "#ccc",
               border: `1px solid ${statusColor[property.status] || "#ccc"}40`
             }}>{property.status}</span>
@@ -184,22 +184,22 @@ function PropertyCard({ property, index }: { property: Property; index: number }
         <div style={{ padding: "1.4rem" }}>
           <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.15rem", fontWeight: 700, color: "var(--text)", marginBottom: "0.5rem" }}>{property.title}</h3>
           <div style={{ display: "flex", alignItems: "center", gap: "5px", marginBottom: "1rem" }}>
-            <MapPin size={11} color="var(--text-dim)" />
-            <span style={{ fontSize: "0.75rem", color: "var(--text-dim)" }}>{property.location}</span>
+            <MapPin size={11} color="var(--text-muted)" />
+            <span style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>{property.location}</span>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "0.75rem", paddingTop: "1rem", borderTop: "1px solid var(--border)" }}>
-            {[{ icon: <span style={{ fontSize: "0.7rem", color: "var(--gold)", fontWeight: 700 }}>RM</span>, label: "Price", value: property.price.replace("RM ", "") },
+            {[{ icon: <span style={{ fontSize: "0.75rem", color: "var(--gold)", fontWeight: 700 }}>RM</span>, label: "Price", value: property.price.replace("RM ", "") },
               { icon: <TrendingUp size={11} color="var(--gold)" />, label: "Yield", value: property.yield },
               { icon: <Maximize2 size={11} color="var(--gold)" />, label: "Area", value: property.area }
             ].map(item => (
               <div key={item.label}>
                 <div style={{ display: "flex", alignItems: "center", gap: "3px", marginBottom: "2px" }}>{item.icon}</div>
-                <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.5rem", color: "var(--text-dim)", letterSpacing: "0.1em", textTransform: "uppercase" }}>{item.label}</div>
-                <div style={{ fontSize: "0.78rem", fontWeight: 600, color: "var(--text)" }}>{item.value}</div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "var(--text-muted)", letterSpacing: "0.1em", textTransform: "uppercase" }}>{item.label}</div>
+                <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--text)" }}>{item.value}</div>
               </div>
             ))}
           </div>
-          <div style={{ marginTop: "1rem", display: "flex", alignItems: "center", gap: "6px", color: "var(--gold)", fontSize: "0.75rem", fontWeight: 600 }}>
+          <div style={{ marginTop: "1rem", display: "flex", alignItems: "center", gap: "6px", color: "var(--gold)", fontSize: "0.82rem", fontWeight: 600 }}>
             <span>View Details</span><ChevronRight size={13} />
           </div>
         </div>

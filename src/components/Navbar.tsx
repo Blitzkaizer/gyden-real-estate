@@ -57,7 +57,7 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
                 transition: "color 0.3s ease"
               }}>GYDEN</span>
               <span style={{
-                fontFamily: "var(--font-mono)", fontSize: "0.48rem", letterSpacing: "0.22em",
+                fontFamily: "var(--font-mono)", fontSize: "0.6rem", letterSpacing: "0.22em",
                 color: "var(--gold)", textTransform: "uppercase"
               }}>Real Estate Group</span>
             </div>
@@ -72,7 +72,7 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
                 onClick={() => handleNav(link.id)}
                 style={{
                   background: "none", border: "none", cursor: "pointer",
-                  fontFamily: "var(--font-sans)", fontSize: "0.78rem", fontWeight: 500,
+                  fontFamily: "var(--font-sans)", fontSize: "0.85rem", fontWeight: 500,
                   letterSpacing: "0.08em", textTransform: "uppercase",
                   color: activeSection === link.id ? "var(--gold)" : (scrolled ? "var(--text-muted)" : "rgba(255, 255, 255, 0.8)"),
                   transition: "color 0.2s",
@@ -96,7 +96,7 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
               style={{
                 padding: "0.55rem 1.4rem",
                 background: "transparent", border: scrolled ? "1px solid var(--gold-border)" : "1px solid var(--gold)",
-                color: scrolled ? "var(--gold)" : "#FFFFFF", fontFamily: "var(--font-sans)", fontSize: "0.75rem",
+                color: scrolled ? "var(--gold)" : "#FFFFFF", fontFamily: "var(--font-sans)", fontSize: "0.8rem",
                 fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase",
                 cursor: "pointer", transition: "all 0.25s",
               }}

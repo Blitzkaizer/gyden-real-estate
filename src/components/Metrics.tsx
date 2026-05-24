@@ -29,12 +29,12 @@ function StatCard({ stat, index }: { stat: typeof stats[0], index: number }) {
         {stat.value}
       </div>
       <div style={{
-        fontFamily: "var(--font-mono)", fontSize: "0.65rem", letterSpacing: "0.15em",
+        fontFamily: "var(--font-mono)", fontSize: "0.75rem", letterSpacing: "0.15em",
         textTransform: "uppercase", color: "var(--gold)", marginBottom: "0.35rem"
       }}>
         {stat.label}
       </div>
-      <div style={{ fontSize: "0.8rem", color: "var(--text-dim)" }}>{stat.sub}</div>
+      <div style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>{stat.sub}</div>
     </motion.div>
   );
 }
