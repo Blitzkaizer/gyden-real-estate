@@ -103,12 +103,20 @@ export default function Hero() {
                 id="hero-match-btn"
                 onClick={() => document.getElementById("matcher")?.scrollIntoView({ behavior: "smooth" })}
                 style={{
-                  padding: "0.85rem 2rem", background: "transparent", border: "1px solid rgba(245,240,232,0.25)",
-                  color: "var(--text)", fontFamily: "var(--font-sans)", fontSize: "0.8rem", fontWeight: 600,
+                  padding: "0.85rem 2rem", background: "transparent", border: "1px solid rgba(255, 255, 255, 0.3)",
+                  color: "#FFFFFF", fontFamily: "var(--font-sans)", fontSize: "0.8rem", fontWeight: 600,
                   letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer", transition: "all 0.25s",
                 }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--gold)"; (e.currentTarget as HTMLElement).style.color = "var(--gold)"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(245,240,232,0.25)"; (e.currentTarget as HTMLElement).style.color = "var(--text)"; }}
+                onMouseEnter={e => { 
+                  (e.currentTarget as HTMLElement).style.background = "var(--gold)"; 
+                  (e.currentTarget as HTMLElement).style.borderColor = "var(--gold)"; 
+                  (e.currentTarget as HTMLElement).style.color = "#FFFFFF"; 
+                }}
+                onMouseLeave={e => { 
+                  (e.currentTarget as HTMLElement).style.background = "transparent"; 
+                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(255, 255, 255, 0.3)"; 
+                  (e.currentTarget as HTMLElement).style.color = "#FFFFFF"; 
+                }}
               >
                 Find Your Match
               </button>
