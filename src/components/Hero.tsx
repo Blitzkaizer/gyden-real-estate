@@ -108,9 +108,9 @@ export default function Hero() {
                   letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer", transition: "all 0.25s",
                 }}
                 onMouseEnter={e => { 
-                  (e.currentTarget as HTMLElement).style.background = "var(--gold)"; 
-                  (e.currentTarget as HTMLElement).style.borderColor = "var(--gold)"; 
-                  (e.currentTarget as HTMLElement).style.color = "#FFFFFF"; 
+                  (e.currentTarget as HTMLElement).style.background = "#FFFFFF"; 
+                  (e.currentTarget as HTMLElement).style.borderColor = "#FFFFFF"; 
+                  (e.currentTarget as HTMLElement).style.color = "var(--text)"; 
                 }}
                 onMouseLeave={e => { 
                   (e.currentTarget as HTMLElement).style.background = "transparent"; 
