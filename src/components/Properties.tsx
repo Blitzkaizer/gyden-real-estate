@@ -129,7 +129,10 @@ function PropertyModal({ property, onClose }: { property: Property; onClose: () 
           </div>
           <button
             id={`modal-contact-${property.id}`}
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => {
+              onClose();
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
             style={{
               marginTop: "1.5rem", width: "100%", padding: "0.9rem",
               background: "var(--gold)", color: "var(--bg)", border: "none",
