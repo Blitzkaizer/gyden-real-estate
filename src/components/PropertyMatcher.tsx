@@ -21,6 +21,7 @@ interface Property {
   images: string[];
   bedrooms?: string;
   bathrooms?: string;
+  rental_income?: string;
 }
 
 const ALL_PROPERTIES = ALL_PROPERTIES_RAW as unknown as Property[];
