@@ -105,6 +105,7 @@ function PropertyModal({ property, onClose }: { property: Property; onClose: () 
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               style={{ width: "100%", height: "100%", objectFit: "contain" }}
+              onError={e => { (e.currentTarget as HTMLImageElement).src = "/property-images/SA001_1.jpeg"; }}
             />
           </AnimatePresence>
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(8,8,8,0.9) 0%, transparent 60%)", pointerEvents: "none" }} />
@@ -273,7 +274,7 @@ function PropertyModal({ property, onClose }: { property: Property; onClose: () 
 
 function PropertyCard({ property, index, onSelect }: { property: Property; index: number; onSelect: () => void }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const inView = useInView(ref, { once: true, margin: "0px" });
 
   return (
     <motion.div
@@ -288,9 +289,13 @@ function PropertyCard({ property, index, onSelect }: { property: Property; index
       id={`property-card-${property.id}`}
     >
       <div style={{ position: "relative", height: "220px", overflow: "hidden" }}>
-        <img src={property.image} alt={property.title} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.6s ease" }}
+        <img 
+          src={property.image} 
+          alt={property.title} 
+          style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.6s ease" }}
           onMouseEnter={e => (e.currentTarget as HTMLImageElement).style.transform = "scale(1.05)"}
           onMouseLeave={e => (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"}
+          onError={e => { (e.currentTarget as HTMLImageElement).src = "/property-images/SA001_1.jpeg"; }}
         />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(8,8,8,0.75) 0%, transparent 50%)" }} />
         <div style={{ position: "absolute", top: "1rem", left: "1rem", display: "flex", gap: "0.4rem" }}>
