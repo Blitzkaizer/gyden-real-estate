@@ -38,6 +38,17 @@ export interface ChatMessage {
 const searchProperties = (query: string): Property[] => {
   const q = query.toLowerCase();
   
+  // Parse dynamic limit if specified by user (default is 3, capped at 10)
+  let limit = 3;
+  const countMatch = q.match(/(?:show|list|get|display|return|want)\s*(?:me\s*)?(?:some\s*)?(\d+)/i) || 
+                     q.match(/(\d+)\s*(?:cheap|luxury|property|properties|listing|listings|apartment|condo|yield|villa|house|flat|shop|land)/i);
+  if (countMatch) {
+    const parsed = parseInt(countMatch[1]);
+    if (!isNaN(parsed) && parsed > 0 && parsed <= 10) {
+      limit = parsed;
+    }
+  }
+  
   // Specific ID Match (e.g., SA001)
   const idMatch = q.match(/sa\d+/i);
   if (idMatch) {
@@ -163,7 +174,7 @@ const searchProperties = (query: string): Property[] => {
     return []; // Return empty matches for off-topic/non-real-estate queries
   }
   
-  return matches.slice(0, 3); // Return top 3 matches
+  return matches.slice(0, limit); // Return top matches up to limit
 };
 
 const generateAdvisorResponse = (query: string, matches: Property[]): string => {
