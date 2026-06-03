@@ -1,9 +1,29 @@
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "motion/react";
 import { ChevronRight, CheckCircle2 } from "lucide-react";
-import sa001Img from "../assets/images/property_sa001.png";
-import sa002Img from "../assets/images/property_sa002.png";
-import sa003Img from "../assets/images/property_sa003.png";
+import { openPropertyDetailsModal } from "./Properties";
+import ALL_PROPERTIES_RAW from "../data/properties_data.json";
+
+interface Property {
+  id: string;
+  title: string;
+  type: string;
+  category: string;
+  price: string;
+  rawPrice: number;
+  area: string;
+  location: string;
+  yield: string;
+  status: string;
+  description: string;
+  features: string[];
+  image: string;
+  images: string[];
+  bedrooms?: string;
+  bathrooms?: string;
+}
+
+const ALL_PROPERTIES = ALL_PROPERTIES_RAW as unknown as Property[];
 
 const steps = [
   {
@@ -11,33 +31,27 @@ const steps = [
     options: ["Buy", "Rent", "Invest", "Joint Venture"]
   },
   {
-    id: "type", label: "Property Type", question: "What type of property?",
-    options: ["APT", "CONDO", "SR", "FLAT", "TERRACE", "SEMI-D", "BUNGALOW", "SOHO", "OFFICE", "RETAIL", "INDUSTRIAL"]
+    id: "type", label: "Property Type", question: "What type of property are you looking for?",
+    options: ["Apartment", "Condominium", "Terrace House", "Semi-D", "Bungalow", "Shop Lot", "Land", "Any Type"]
   },
   {
     id: "budget", label: "Budget", question: "What is your budget range?",
     options: ["< RM 500K", "RM 500K – 1M", "RM 1M – 3M", "RM 3M – 5M", "RM 5M+", "Open Budget"]
   },
   {
-    id: "location", label: "Location", question: "Preferred location in Johor?",
-    options: ["Johor Bahru Central", "Danga Bay", "Skudai", "Iskandar Puteri", "Medini", "Senai", "Flexible"]
+    id: "location", label: "Location", question: "Preferred area in Johor?",
+    options: ["Johor Bahru Central", "Danga Bay", "Medini", "Kulai", "Desaru", "Seri Alam", "Mount Austin", "Flexible"]
   },
   {
-    id: "rooms", label: "Rooms", question: "Number of rooms needed?",
+    id: "rooms", label: "Rooms", question: "Number of rooms needed (if residential)?",
     options: ["Studio", "1 Room", "2 Rooms", "3 Rooms", "4 Rooms", "5 Rooms+", "Not Applicable"]
   },
-];
-
-const MATCH_DATA = [
-  { id: "SA001", title: "Danga Bay Commercial Hub", type: "RETAIL", price: "RM 4,200,000", yield: "6.8%", image: sa001Img, tags: ["Invest", "RETAIL", "RM 3M – 5M", "Danga Bay"] },
-  { id: "SA002", title: "Skudai Luxury Villa", type: "BUNGALOW", price: "RM 2,850,000", yield: "4.5%", image: sa002Img, tags: ["Buy", "BUNGALOW", "RM 1M – 3M", "Skudai"] },
-  { id: "SA003", title: "JB Central Office Plot", type: "INDUSTRIAL", price: "RM 7,900,000", yield: "8.2%", image: sa003Img, tags: ["Invest", "Joint Venture", "INDUSTRIAL", "RM 5M+", "Johor Bahru Central"] },
 ];
 
 export default function PropertyMatcher() {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [currentStep, setCurrentStep] = useState(0);
-  const [matched, setMatched] = useState<typeof MATCH_DATA | null>(null);
+  const [matched, setMatched] = useState<Property[] | null>(null);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -48,12 +62,72 @@ export default function PropertyMatcher() {
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
-      // Match
-      const userTags = Object.values(newAnswers) as string[];
-      const results = MATCH_DATA.filter(p =>
-        p.tags.some(tag => userTags.some(ut => tag.toLowerCase().includes(ut.toLowerCase()) || ut.toLowerCase().includes(tag.toLowerCase())))
-      );
-      setMatched(results.length > 0 ? results : MATCH_DATA);
+      // Execute matchmaking algorithm
+      const results = ALL_PROPERTIES.filter(p => {
+        // 1. Purpose Match
+        const purpose = newAnswers.purpose;
+        const isRent = p.price.toLowerCase().includes("rent") || (p.rental_income && p.rental_income !== "TBC");
+        const isSales = !isRent;
+        const matchPurpose = 
+          purpose === "Rent" ? isRent :
+          purpose === "Buy" ? isSales :
+          purpose === "Joint Venture" ? p.status.toLowerCase() === "joint venture" :
+          true; // "Invest" matches anything
+          
+        // 2. Type Match
+        const type = newAnswers.type;
+        let matchType = true;
+        if (type !== "Any Type") {
+          const pTypeLower = p.type.toLowerCase();
+          if (type === "Apartment") matchType = pTypeLower.includes("apartment") || pTypeLower.includes("soho") || pTypeLower.includes("flat");
+          else if (type === "Condominium") matchType = pTypeLower.includes("condo") || pTypeLower.includes("apartment") || pTypeLower.includes("residence");
+          else if (type === "Terrace House") matchType = pTypeLower.includes("terrace") || pTypeLower.includes("gardenlink") || pTypeLower.includes("townhouse") || pTypeLower.includes("link");
+          else if (type === "Semi-D") matchType = pTypeLower.includes("semi") || pTypeLower.includes("semi-d");
+          else if (type === "Bungalow") matchType = pTypeLower.includes("bungalow") || pTypeLower.includes("villa");
+          else if (type === "Shop Lot") matchType = pTypeLower.includes("shop") || pTypeLower.includes("office") || pTypeLower.includes("retail");
+          else if (type === "Land") matchType = pTypeLower.includes("land") || pTypeLower.includes("industrial") || pTypeLower.includes("agriculture");
+        }
+
+        // 3. Budget Match
+        const budget = newAnswers.budget;
+        let matchBudget = true;
+        if (budget !== "Open Budget") {
+          if (budget === "< RM 500K") matchBudget = p.rawPrice > 0 && p.rawPrice < 500000;
+          else if (budget === "RM 500K – 1M") matchBudget = p.rawPrice >= 500000 && p.rawPrice <= 1000000;
+          else if (budget === "RM 1M – 3M") matchBudget = p.rawPrice >= 1000000 && p.rawPrice <= 3000000;
+          else if (budget === "RM 3M – 5M") matchBudget = p.rawPrice >= 3000000 && p.rawPrice <= 5000000;
+          else if (budget === "RM 5M+") matchBudget = p.rawPrice >= 5000000;
+        }
+
+        // 4. Location Match
+        const loc = newAnswers.location;
+        let matchLocation = true;
+        if (loc !== "Flexible") {
+          const cleanLoc = loc.replace(" Central", "").toLowerCase();
+          matchLocation = p.location.toLowerCase().includes(cleanLoc) || p.title.toLowerCase().includes(cleanLoc);
+        }
+
+        // 5. Rooms Match
+        const rooms = newAnswers.rooms;
+        let matchRooms = true;
+        if (rooms !== "Not Applicable" && p.bedrooms) {
+          if (rooms === "Studio") {
+            matchRooms = p.bedrooms.toLowerCase().includes("studio") || p.bedrooms === "1";
+          } else {
+            const numRooms = parseInt(rooms);
+            if (!isNaN(numRooms)) {
+              // Convert "3+1" to 3
+              const pRooms = parseInt(p.bedrooms);
+              matchRooms = !isNaN(pRooms) && pRooms >= numRooms;
+            }
+          }
+        }
+
+        return matchPurpose && matchType && matchBudget && matchLocation && matchRooms;
+      });
+
+      // Limit matching results to top 5 to keep view elegant and readable
+      setMatched(results.slice(0, 5));
     }
   };
 
@@ -81,7 +155,7 @@ export default function PropertyMatcher() {
               Find Your Perfect Property
             </h2>
             <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", lineHeight: 1.7 }}>
-              Answer a few quick questions and we'll match you with the best properties in our portfolio.
+              Answer a few quick questions and we'll instantly match you with matching properties in our 300-plot portfolio.
             </p>
           </div>
 
@@ -152,33 +226,40 @@ export default function PropertyMatcher() {
               <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "2rem" }}>
                 <CheckCircle2 size={20} color="var(--gold)" />
                 <span style={{ fontFamily: "var(--font-serif)", fontSize: "1.2rem", color: "var(--text)" }}>
-                  We found <strong style={{ color: "var(--gold)" }}>{matched.length}</strong> matching {matched.length === 1 ? "property" : "properties"} for you
+                  {matched.length > 0 ? (
+                    <>We found <strong style={{ color: "var(--gold)" }}>{matched.length}</strong> matching {matched.length === 1 ? "property" : "properties"} for you</>
+                  ) : (
+                    <>No exact matches found. Showing recommendations</>
+                  )}
                 </span>
               </div>
 
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2rem" }}>
-                {matched.map((p, i) => (
+                {(matched.length > 0 ? matched : ALL_PROPERTIES.slice(0, 3)).map((p, i) => (
                   <motion.div
                      key={p.id}
                      initial={{ opacity: 0, y: 20 }}
                      animate={{ opacity: 1, y: 0 }}
                      transition={{ delay: i * 0.1 }}
-                     style={{ display: "flex", gap: "1.2rem", background: "var(--bg-card)", border: "1px solid var(--border-gold)", padding: "1rem", alignItems: "center" }}
+                     style={{ display: "flex", gap: "1.2rem", background: "var(--bg-card)", border: "1px solid var(--border)", padding: "1rem", alignItems: "center", cursor: "pointer", transition: "border-color 0.2s" }}
+                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--border-gold)"; }}
+                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--border)"; }}
+                     onClick={() => openPropertyDetailsModal(p.id)}
                   >
                     <img src={p.image} alt={p.title} style={{ width: "90px", height: "70px", objectFit: "cover", flexShrink: 0 }} />
                     <div style={{ flex: 1 }}>
                       <div style={{ display: "flex", gap: "0.4rem", marginBottom: "0.4rem" }}>
-                        <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", padding: "3px 8px", background: "var(--gold)", color: "var(--bg)", fontWeight: 700 }}>{p.id}</span>
+                        <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", padding: "3px 8px", background: "var(--gold)", color: "var(--bg)", fontWeight: 700 }}>{p.category}</span>
                         <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", padding: "3px 8px", border: "1px solid var(--gold-border)", color: "var(--gold)" }}>{p.type}</span>
                       </div>
                       <div style={{ fontFamily: "var(--font-serif)", fontSize: "1.05rem", fontWeight: 700, color: "var(--text)", marginBottom: "0.3rem" }}>{p.title}</div>
                       <div style={{ display: "flex", gap: "1.5rem" }}>
                         <span style={{ fontSize: "0.8rem", color: "var(--gold)", fontWeight: 600 }}>{p.price}</span>
-                        <span style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>{p.yield} Yield</span>
+                        <span style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>{p.yield === "TBC" ? "Capital Growth Focus" : `${p.yield} Yield`}</span>
                       </div>
                     </div>
                     <button
-                      onClick={() => document.getElementById("properties")?.scrollIntoView({ behavior: "smooth" })}
+                      onClick={(e) => { e.stopPropagation(); openPropertyDetailsModal(p.id); }}
                       style={{ background: "none", border: "none", color: "var(--gold)", cursor: "pointer" }}
                     >
                       <ChevronRight size={20} />
@@ -193,8 +274,11 @@ export default function PropertyMatcher() {
                   onClick={reset}
                   style={{
                     padding: "0.75rem 1.5rem", background: "transparent", border: "1px solid var(--border)",
-                    color: "var(--text-muted)", fontFamily: "var(--font-sans)", fontSize: "0.78rem", cursor: "pointer"
+                    color: "var(--text-muted)", fontFamily: "var(--font-sans)", fontSize: "0.78rem", cursor: "pointer",
+                    transition: "all 0.2s"
                   }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--text-muted)"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--border)"; }}
                 >
                   Start Over
                 </button>
@@ -204,8 +288,10 @@ export default function PropertyMatcher() {
                   style={{
                     padding: "0.75rem 1.5rem", background: "var(--gold)", border: "none",
                     color: "var(--bg)", fontFamily: "var(--font-sans)", fontSize: "0.78rem",
-                    fontWeight: 700, cursor: "pointer", letterSpacing: "0.05em"
+                    fontWeight: 700, cursor: "pointer", letterSpacing: "0.05em", transition: "background 0.2s"
                   }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--gold-light)"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "var(--gold)"; }}
                 >
                   Speak to an Advisor →
                 </button>

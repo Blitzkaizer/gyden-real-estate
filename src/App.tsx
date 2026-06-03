@@ -7,11 +7,20 @@ import PropertyMatcher from "./components/PropertyMatcher";
 import Leadership from "./components/Leadership";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
+import AgentChat, { FloatingAgentChat } from "./components/AgentChat";
 
-const SECTIONS = ["hero", "metrics", "properties", "matcher", "leadership", "contact"];
+const SECTIONS = ["hero", "metrics", "properties", "matcher", "advisor", "leadership", "contact"];
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("hero");
+
+  useEffect(() => {
+    // Override browser scroll restoration and force top positioning on mount
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
@@ -42,10 +51,12 @@ export default function App() {
         <Metrics />
         <Properties />
         <PropertyMatcher />
+        <AgentChat />
         <Leadership />
         <ContactForm />
       </main>
       <Footer />
+      <FloatingAgentChat />
     </div>
   );
 }

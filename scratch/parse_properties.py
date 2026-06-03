@@ -106,7 +106,7 @@ def parse_docx_content(text, folder_name):
             remarks_section = True
             continue
         if remarks_section:
-            data["remarks"] += line + " "
+            # Skip remarks entirely to protect private client and property information
             continue
             
         # Parse fields
@@ -117,6 +117,8 @@ def parse_docx_content(text, folder_name):
             data["type"] = line.split(":", 1)[1].strip()
         elif "selling price:" in lower_line or "rental price:" in lower_line or "price:" in lower_line:
             val = line.split(":", 1)[1].strip()
+            # Normalize nego/Nego to Negotiable
+            val = re.sub(r'\bnego(tiable)?\b', 'Negotiable', val, flags=re.IGNORECASE)
             data["price"] = val
             data["rawPrice"] = parse_price(val)
         elif "build up area:" in lower_line or "built up area:" in lower_line:
@@ -293,27 +295,30 @@ def run_parser():
         img_extensions = ["*.jpeg", "*.jpg", "*.png", "*.webp"]
         images = []
         for ext in img_extensions:
-            images += glob.glob(os.path.join(folder, ext)) + glob.glob(os.path.join(folder, "PRIVATE", ext))
+            images += glob.glob(os.path.join(folder, ext))
             
+        if not images:
+            # Skip properties without real screenshots
+            continue
+            
+        prop_data["images"] = []
+        
         # Find WhatsApp images or others
-        if images:
-            # Choose the first image as representative
-            first_img = sorted(images)[0]
-            # Copy it to public/property-images/{id}_1.jpg
-            file_ext = os.path.splitext(first_img)[1].lower()
-            dest_name = f"{prop_data['id']}_1{file_ext}"
+        images = sorted(images)
+        for idx, img_path in enumerate(images):
+            file_ext = os.path.splitext(img_path)[1].lower()
+            dest_name = f"{prop_data['id']}_{idx+1}{file_ext}"
             dest_path = os.path.join(public_img_dir, dest_name)
-            
             try:
-                shutil.copy2(first_img, dest_path)
-                prop_data["image"] = f"/property-images/{dest_name}"
+                shutil.copy2(img_path, dest_path)
+                prop_data["images"].append(f"/property-images/{dest_name}")
             except Exception as e:
-                print(f"Error copying image {first_img}: {e}")
-                prop_data["image"] = fallback_images[i % 3]
-        else:
-            # Fallback image
-            prop_data["image"] = fallback_images[i % 3]
+                print(f"Error copying image {img_path}: {e}")
+                
+        if not prop_data["images"]:
+            continue
             
+        prop_data["image"] = prop_data["images"][0]
         properties_list.append(prop_data)
         
         if (i+1) % 50 == 0 or (i+1) == len(folders):

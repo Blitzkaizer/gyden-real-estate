@@ -10,6 +10,7 @@ interface NavbarProps {
 const navLinks = [
   { id: "properties", label: "Properties" },
   { id: "matcher", label: "Find a Match" },
+  { id: "advisor", label: "Advisor" },
   { id: "leadership", label: "Leadership" },
   { id: "contact", label: "Contact" },
 ];

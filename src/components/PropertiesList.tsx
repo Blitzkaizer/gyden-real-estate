@@ -68,7 +68,7 @@ export default function PropertiesList({ properties, loading }: PropertiesListPr
             <input
               id="property-search-input"
               type="text"
-              placeholder="Search by ID (e.g., SA001), Location, or Keyword..."
+              placeholder="Search by ID, Location, or Keyword..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full bg-stone-900 border border-stone-800 rounded-lg pl-10 pr-4 py-2.5 text-stone-150 text-sm focus:outline-none focus:border-emerald-500/50 transition-all font-sans text-stone-200"
@@ -327,10 +327,10 @@ export default function PropertiesList({ properties, loading }: PropertiesListPr
                 <FolderClosed className="h-12 w-12 text-emerald-400 mb-3" />
                 <h3 className="text-base font-bold text-stone-200">No Asset Select Profile Mounted</h3>
                 <p className="text-xs text-stone-450 mt-1 max-w-sm">
-                  Click on one of the premium properties from the left registry panel (SA001, SA002, or SA003) to open the internal document console and inspect active project dossiers.
+                  Click on one of the premium properties from the left registry panel to open the internal document console and inspect active project dossiers.
                 </p>
                 <div className="mt-6 grid grid-cols-3 gap-3 w-full max-w-md">
-                  {properties.map(p => (
+                  {properties.slice(0, 3).map(p => (
                     <button
                       key={p.id}
                       onClick={() => {

@@ -76,21 +76,21 @@ export default function Calculators() {
     {
       class: "Core Commercial Yield Assets",
       percentage: allocationShares.commercial,
-      description: "Waterfront corporate hubs & high-traffic retail parcels (e.g. SA001) securing monthly cashflow.",
+      description: "Waterfront corporate hubs & high-traffic retail parcels securing monthly cashflow.",
       value: Math.round((inputs.principal * allocationShares.commercial) / 100),
       color: "from-emerald-400 to-emerald-500"
     },
     {
       class: "Bespoke Landed Freehold Residential",
       percentage: allocationShares.residential,
-      description: "Teak luxury villas inside premium gated estates (e.g. SA002) acting as multi-gen safety anchors.",
+      description: "Teak luxury villas inside premium gated estates acting as multi-gen safety anchors.",
       value: Math.round((inputs.principal * allocationShares.residential) / 100),
       color: "from-teal-500 to-emerald-600"
     },
     {
       class: "Transit-Corridor Joint Ventures",
       percentage: allocationShares.development,
-      description: "Development-density plots close to high-speed rail lines / RTS links (e.g. SA003) maximizing capital multiples.",
+      description: "Development-density plots close to high-speed rail lines / RTS links maximizing capital multiples.",
       value: Math.round((inputs.principal * allocationShares.development) / 100),
       color: "from-lime-400 to-emerald-500"
     },
@@ -303,7 +303,7 @@ export default function Calculators() {
             <div className="space-y-4 text-xs font-sans">
               <div>
                 <div className="flex justify-between items-center text-stone-300 mb-1 font-mono">
-                  <span>Transit-Corridor Commercial (SA001/SA003)</span>
+                  <span>Transit-Corridor Commercial</span>
                   <span className="text-emerald-400 font-bold">{allocationShares.commercial}%</span>
                 </div>
                 <input
@@ -319,7 +319,7 @@ export default function Calculators() {
 
               <div>
                 <div className="flex justify-between items-center text-stone-300 mb-1 font-mono">
-                  <span>Bespoke Handed Freehold Residential (SA002)</span>
+                  <span>Bespoke Landed Freehold Residential</span>
                   <span className="text-emerald-400 font-bold">{allocationShares.residential}%</span>
                 </div>
                 <input
@@ -407,7 +407,7 @@ export default function Calculators() {
             <div className="mt-5 p-4 rounded-xl bg-stone-950 border border-stone-850 text-xs text-stone-400 flex items-start space-x-3 leading-relaxed">
               <Info className="h-4.5 w-4.5 text-emerald-400 shrink-0 mt-0.5" />
               <div>
-                <strong className="text-stone-300">Gyden Portfolio Tip:</strong> In Johor Bahru's high-yield RTS developments (SA003) and primary waterfront units (SA001), maintaining a 50% Commercial / 30% Luxury residential lock has historically yielded capital inflation protection with substantial liquidity cash flows.
+                <strong className="text-stone-300">Gyden Portfolio Tip:</strong> In Johor Bahru's high-yield RTS developments and primary waterfront units, maintaining a 50% Commercial / 30% Luxury residential allocation has historically yielded capital inflation protection with substantial liquidity cash flows.
               </div>
             </div>
 

@@ -158,7 +158,7 @@ export default function ContactForm() {
                 </div>
 
                 <p className="text-xs text-[var(--text-muted)] leading-relaxed max-w-md">
-                  {submissionResult.message} A corporate legal dossier matching SA001/003 metrics has been earmarked for your preview.
+                  {submissionResult.message} A corporate legal dossier matching your selected strategy metrics has been earmarked for your preview.
                 </p>
 
                 <button
@@ -254,9 +254,9 @@ export default function ContactForm() {
                     onChange={(e) => setFormData({ ...formData, strategy: e.target.value })}
                     style={{ display: "block", width: "100%", height: "46px", background: "var(--bg)", border: "1px solid var(--border)", paddingLeft: "1rem", paddingRight: "2rem", color: "var(--text)", fontFamily: "var(--font-sans)", fontSize: "0.78rem", outline: "none", borderRadius: "0px", cursor: "pointer" }}
                   >
-                    <option>Transit Corridor Development (SA003 Correlation)</option>
-                    <option>Waterfront Commercial Hubs (SA001 Correlation)</option>
-                    <option>Teak Landed Residential Luxury Villas (SA002 Correlation)</option>
+                    <option>Transit Corridor Development (RTS Corridor)</option>
+                    <option>Waterfront Commercial Hubs (Danga Bay)</option>
+                    <option>Landed Residential Luxury Villas (Skudai)</option>
                     <option>Blended Joint Venture Portfolio (All Assets Matrix)</option>
                   </select>
                 </div>
